@@ -336,12 +336,19 @@
     background: #05140b;
   }
   .hero-slide, .hero-overlay {
-    height: 55vh;
+    height: calc(55vh + 2px);
+    bottom: auto;
+    transform: none !important;
+    animation: none !important;
+  }
+  .hero-slide--active {
+    animation: none !important;
   }
   .hero-progress {
     top: 55vh;
     bottom: auto;
     height: 3px;
+    background: transparent;
   }
   .hero-container-grid > .row {
     height: auto;
