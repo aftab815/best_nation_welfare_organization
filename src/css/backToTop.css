@@ -1,0 +1,36 @@
+/* ══════════════════════════════════════════════════
+   BACK TO TOP — Green · Gold · Orange Redesign
+   ══════════════════════════════════════════════════ */
+
+.back-to-top {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    width: 46px;
+    height: 46px;
+    border-radius: 50px;
+    right: 18px;
+    bottom: 18px;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
+    z-index: 10;
+    box-shadow: 0 6px 20px rgba(34,197,94,0.4);
+    border: none;
+}
+
+.back-to-top i {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.back-to-top:hover {
+    background: linear-gradient(135deg, #f5c518 0%, #f97316 100%);
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 10px 28px rgba(245,197,24,0.5);
+}
+
+.back-to-top:hover i {
+    color: #071a0e;
+}

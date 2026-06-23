@@ -1,0 +1,204 @@
+/* ==========================================================================
+   INITIATIVES — Alkhidmat Circle Icon Cards Grid
+   ========================================================================== */
+
+.initiatives-section {
+  padding: 100px 0 80px 0;
+  background: var(--clr-bg-light);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.initiatives-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 50px;
+}
+
+.filter-btn {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  color: var(--clr-text-main);
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-family: var(--font-main);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.filter-btn:hover {
+  background: #f8fafc;
+  border-color: var(--clr-primary);
+  color: var(--clr-primary);
+  transform: translateY(-1px);
+}
+
+.filter-btn.active {
+  background: var(--clr-primary);
+  border-color: var(--clr-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 116, 63, 0.25);
+}
+
+/* Service Card Layout */
+.initiative-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-smooth);
+  margin-top: 30px;
+  position: relative;
+}
+
+.initiative-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), var(--shadow-glow-green);
+  border-color: rgba(0, 116, 63, 0.15);
+}
+
+/* Circle Icon Header Block */
+.card-icon-wrap {
+  position: relative;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+}
+
+.card-circle-icon {
+  position: absolute;
+  top: -30px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--clr-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  box-shadow: 0 8px 20px rgba(0, 116, 63, 0.25);
+  transition: var(--transition-smooth);
+  border: 4px solid #ffffff;
+  z-index: 2;
+}
+
+.initiative-card:hover .card-circle-icon {
+  background: var(--clr-accent);
+  color: var(--clr-bg-dark);
+  box-shadow: 0 8px 20px rgba(235, 176, 20, 0.35);
+  transform: rotate(-8deg);
+}
+
+.card-tag {
+  position: absolute;
+  top: 55px;
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--clr-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-body-content {
+  padding: 16px 26px 26px 26px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+.card-cost-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-accent);
+  font-size: 13px;
+  font-weight: 800;
+  background: rgba(235, 176, 20, 0.08);
+  border: 1px solid rgba(235, 176, 20, 0.2);
+  padding: 4px 12px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+}
+
+.card-title {
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--clr-bg-dark);
+  margin-bottom: 10px;
+  transition: var(--transition-smooth);
+}
+
+.initiative-card:hover .card-title {
+  color: var(--clr-primary);
+}
+
+.card-description {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--clr-text-muted);
+  margin-bottom: 22px;
+  flex-grow: 1;
+}
+
+/* Progress bar section */
+.card-progress-section {
+  margin-top: auto;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 18px;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  margin-bottom: 6px;
+}
+
+.progress-labels .raised-label {
+  color: var(--clr-text-main);
+}
+
+.progress-labels .percent-label {
+  color: var(--clr-primary);
+  font-weight: 800;
+}
+
+.progress-bar-track {
+  height: 6px;
+  background: #f1f5f9;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--clr-primary-light) 0%, var(--clr-primary) 100%);
+  border-radius: 5px;
+}
+
+.progress-goal {
+  font-size: 11px;
+  color: var(--clr-text-muted);
+  text-align: right;
+  font-weight: 600;
+}
+
+@media (max-width: 991.98px) {
+  .initiatives-filters {
+    gap: 8px;
+  }
+  .filter-btn {
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+}

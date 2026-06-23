@@ -1,0 +1,83 @@
+/* ==========================================================================
+   FUNDS / IMPACT COUNTER — Alkhidmat Branding Overlay
+   ========================================================================== */
+
+.funds {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../assets/facts.jpg");
+    height: 320px;
+    width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: var(--font-main);
+}
+
+.funds::before {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 116, 63, 0.92) 0%, rgba(0, 80, 42, 0.88) 100%);
+    z-index: 1;
+}
+
+.funds .container {
+    position: relative;
+    z-index: 2;
+}
+
+.funds .facts-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 25px 0;
+}
+
+.funds .facts-item svg {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
+}
+
+.funds .facts-item:hover svg {
+    transform: scale(1.1) translateY(-2px);
+}
+
+.funds .facts-text h3 {
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--clr-accent);
+    margin: 0;
+    line-height: 1.1;
+}
+
+.funds .facts-text p {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 4px 0 0 0;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 991.98px) {
+    .funds {
+        height: auto;
+        padding: 50px 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .funds .row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .funds .facts-text h3 { font-size: 32px; }
+    .funds .facts-text p  { font-size: 13px; }
+}

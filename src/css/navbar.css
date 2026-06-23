@@ -1,0 +1,313 @@
+/* ==========================================================================
+   NAVBAR & TOPBAR — Light Corporate Design
+   ========================================================================== */
+
+/* ── Top Bar (Utility) ─────────────────────────────────────────── */
+.top-bar {
+    position: fixed;
+    height: 40px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: var(--clr-primary);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.top-bar.hide-top-bar {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.top-bar .top-bar-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.top-bar .top-bar-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.top-bar .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    height: 40px;
+    padding: 0 16px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.top-bar .text:last-child {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.top-bar .text i {
+    font-size: 13px;
+    color: #ffffff;
+    margin-right: 8px;
+}
+
+.top-bar .text a i {
+    color: #ffffff;
+    transition: color 0.2s ease;
+}
+
+.top-bar .text a:hover i {
+    color: var(--clr-accent);
+}
+
+.top-bar .text p {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.top-bar .text a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.top-bar .text a:hover p {
+    color: var(--clr-accent);
+}
+
+.top-bar .social {
+    display: flex;
+    height: 40px;
+}
+
+.top-bar .social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 100%;
+    font-size: 13px;
+    color: #ffffff;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+}
+
+.top-bar .social a:first-child {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.top-bar .social a:hover {
+    color: var(--clr-accent);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+@media (min-width: 992px) {
+    .top-bar {
+        padding: 0 60px;
+    }
+}
+
+/* ── Main Nav Bar ─────────────────────────────────────────────── */
+.navbar {
+    position: relative;
+    transition: var(--transition-smooth);
+    z-index: 1000;
+    background: var(--clr-bg-white) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-sm);
+}
+
+.navbar.nav-sticky {
+    position: fixed !important;
+    top: 0 !important;
+    width: 100%;
+    background: var(--clr-bg-white) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: var(--shadow-lg);
+    padding: 8px 60px !important;
+    animation: slideNavDown 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes slideNavDown {
+    from { transform: translateY(-100%); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* Brand logo & Slogan */
+.navbar .navbar-brand {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.navbar .navbar-brand img {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.06));
+    transition: transform 0.3s ease;
+}
+
+.navbar .navbar-brand:hover img {
+    transform: scale(1.04);
+}
+
+.navbar .brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.1;
+}
+
+.navbar .brand-title {
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: var(--clr-primary);
+    text-transform: uppercase;
+}
+
+.navbar .brand-slogan {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--clr-accent);
+    text-transform: uppercase;
+}
+
+/* Navigation Links */
+.navbar-dark .navbar-nav .nav-link {
+    padding: 8px 16px;
+    color: #4b5563 !important; /* Slate grey links */
+    font-weight: 600;
+    font-size: 14.5px;
+    letter-spacing: 0.2px;
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.navbar-dark .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+    right: 16px;
+    height: 3px;
+    background: var(--clr-primary);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: left;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover::after,
+.navbar-dark .navbar-nav .nav-link.active::after {
+    transform: scaleX(1);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: var(--clr-primary) !important;
+}
+
+/* ── Custom Donate CTA Button ──────────────────────────────────── */
+.nav-donate-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px !important;
+    margin-left: 15px;
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #ffffff !important;
+    background: linear-gradient(135deg, var(--clr-accent), #e05e00);
+    border-radius: var(--radius-pill);
+    box-shadow: 0 4px 15px rgba(255, 106, 0, 0.3);
+    transition: var(--transition-smooth) !important;
+    text-decoration: none;
+    align-self: center;
+}
+
+.nav-donate-btn::after {
+    display: none !important;
+}
+
+.nav-donate-btn:hover {
+    background: linear-gradient(135deg, var(--clr-primary), #006130) !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 20px rgba(0, 122, 61, 0.35);
+    transform: translateY(-2px);
+}
+
+.nav-donate-btn i {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.nav-donate-btn:hover i {
+    transform: scale(1.2);
+}
+
+/* ── Desktop Fixed Mode ───────────────────────────────────────── */
+@media (min-width: 992px) {
+    .navbar {
+        position: fixed;
+        width: 100%;
+        top: 40px;
+        padding: 8px 60px;
+        background: var(--clr-bg-white) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+    }
+}
+
+/* ── Mobile Layout Adjustments ─────────────────────────────────── */
+@media (max-width: 991.98px) {
+    .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 10px 16px;
+        background: var(--clr-bg-white) !important;
+        z-index: 1000;
+    }
+
+    .navbar-dark .navbar-toggler {
+        border-color: rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .navbar-dark .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.85%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    }
+
+    .navbar-dark .navbar-toggler:focus {
+        box-shadow: 0 0 0 3px rgba(0, 122, 61, 0.15) !important;
+    }
+
+    .navbar-dark .navbar-nav .nav-link {
+        padding: 10px 8px;
+    }
+
+    .navbar-dark .navbar-nav .nav-link::after {
+        display: none; /* Disable underline on mobile */
+    }
+
+    .nav-donate-btn {
+        margin-left: 0;
+        margin-top: 12px;
+        width: 100%;
+        justify-content: center;
+        padding: 12px !important;
+    }
+
+    .navbar.nav-sticky {
+        padding: 10px 16px !important;
+        animation: none;
+    }
+}

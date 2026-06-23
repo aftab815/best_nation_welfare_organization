@@ -1,0 +1,361 @@
+/* ==========================================================================
+   EVENTS — Light Theme Grid Cards and Filter Controls
+   ========================================================================== */
+
+.event-list-section {
+    padding: 100px 0;
+    background: var(--clr-bg-light);
+    font-family: var(--font-main);
+    color: var(--clr-text-main);
+    min-height: 100vh;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.event-list-section .section-header h2 {
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--clr-bg-dark);
+}
+
+/* ── Filter Buttons (Events Page) ─────────────────────────────── */
+.initiatives-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 50px;
+}
+
+.filter-btn {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    color: var(--clr-text-main);
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.filter-btn:hover {
+    background: #f8fafc;
+    border-color: var(--clr-primary);
+    color: var(--clr-primary);
+    transform: translateY(-1px);
+}
+
+.filter-btn.active {
+    background: var(--clr-primary);
+    border-color: var(--clr-primary);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 122, 61, 0.25);
+}
+
+/* Staggered cards anim */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.event-card-container {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.event-card-container:nth-child(1) { animation-delay: 0.05s; }
+.event-card-container:nth-child(2) { animation-delay: 0.1s; }
+.event-card-container:nth-child(3) { animation-delay: 0.15s; }
+.event-card-container:nth-child(4) { animation-delay: 0.2s; }
+.event-card-container:nth-child(5) { animation-delay: 0.25s; }
+.event-card-container:nth-child(6) { animation-delay: 0.3s; }
+.event-card-container:nth-child(7) { animation-delay: 0.35s; }
+
+/* ── Light Corporate Card Layout ────────────────────────────── */
+.event-card {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    position: relative;
+}
+
+.event-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--clr-primary), var(--clr-accent));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: 2;
+}
+
+.event-card:hover::before { transform: scaleX(1); }
+
+.event-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06), var(--shadow-glow-green);
+    border-color: rgba(0, 122, 61, 0.15);
+}
+
+.event-card-img {
+    position: relative;
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+}
+
+.event-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.event-card:hover .event-card-img img {
+    transform: scale(1.06);
+}
+
+.event-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: linear-gradient(135deg, var(--clr-accent), #e05e00);
+    color: #ffffff;
+    padding: 5px 14px;
+    border-radius: 30px;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(255, 106, 0, 0.2);
+    z-index: 2;
+    transition: var(--transition-smooth);
+}
+
+.event-card:hover .event-badge {
+    background: linear-gradient(135deg, var(--clr-primary-light), var(--clr-primary));
+    box-shadow: 0 4px 10px rgba(34, 197, 94, 0.2);
+}
+
+/* Card Body */
+.event-card-body {
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background: #ffffff;
+}
+
+.event-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--clr-bg-dark);
+    margin-bottom: 12px;
+    transition: var(--transition-smooth);
+    line-height: 1.35;
+}
+
+.event-card:hover .event-title {
+    color: var(--clr-primary);
+}
+
+.event-meta {
+    margin-bottom: 16px;
+    font-size: 13px;
+    color: var(--clr-text-muted);
+}
+
+.event-meta p {
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.event-meta p i {
+    width: 18px;
+    color: var(--clr-primary);
+    font-size: 13px;
+}
+
+.event-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--clr-text-muted);
+    flex-grow: 1;
+}
+
+/* ── Focused Dark Lightbox Gallery Modal ────────────────────── */
+.lightbox-modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(12px);
+    z-index: 1050;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.lightbox-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scale(0.85);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lightbox-modal.show .lightbox-content { transform: scale(1); }
+
+.lightbox-close {
+    position: absolute;
+    top: -50px; right: 0;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 36px;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    z-index: 1060;
+}
+
+.lightbox-close:hover {
+    color: var(--clr-accent);
+    transform: rotate(90deg) scale(1.1);
+}
+
+.lightbox-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-height: 55vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-main-img {
+    max-width: 100%;
+    max-height: 55vh;
+    object-fit: contain;
+}
+
+.lightbox-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+    z-index: 1060;
+}
+
+.lightbox-btn:hover {
+    background: var(--clr-primary);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+}
+
+.lightbox-btn.prev { left: 16px; }
+.lightbox-btn.next { right: 16px; }
+
+.lightbox-info {
+    width: 100%;
+    padding: 20px 10px 0 10px;
+    text-align: center;
+}
+
+.lightbox-title {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.lightbox-meta {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 12px;
+}
+
+.lightbox-meta span { margin: 0 12px; }
+
+.lightbox-desc {
+    font-size: 14.5px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.lightbox-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+    width: 100%;
+    overflow-x: auto;
+    padding: 5px 0;
+}
+
+.lightbox-thumb {
+    width: 64px; height: 44px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0.4;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.lightbox-thumb:hover { opacity: 0.75; }
+
+.lightbox-thumb.active {
+    opacity: 1;
+    border-color: var(--clr-primary-light);
+}
+
+@media (max-width: 991.98px) {
+    .event-list-section {
+        padding: 70px 0;
+    }
+    .event-card-img {
+        height: 200px;
+    }
+}

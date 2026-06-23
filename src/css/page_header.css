@@ -1,0 +1,113 @@
+/* ══════════════════════════════════════════════════
+   PAGE HEADER — Green · Gold · Orange Redesign
+   ══════════════════════════════════════════════════ */
+
+.page-header {
+    position: relative;
+    margin-bottom: 0;
+    padding: 220px 0 90px 0;
+    text-align: center;
+    overflow: hidden;
+    font-family: 'Outfit', sans-serif;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(7,26,14,0.75), rgba(7,26,14,0.65)),
+        url(../assets/page-header.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+}
+
+.page-header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(34,197,94,0.12) 0%,
+        transparent 50%,
+        rgba(249,115,22,0.08) 100%
+    );
+    z-index: 1;
+}
+
+.page-header > * {
+    position: relative;
+    z-index: 2;
+}
+
+.page-header h2 {
+    position: relative;
+    font-size: 58px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    background: linear-gradient(90deg, #22c55e 0%, #f5c518 55%, #f97316 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: heroFadeUp 0.7s ease both;
+}
+
+.page-header h2::after {
+    position: absolute;
+    content: "";
+    width: 80px;
+    height: 3px;
+    left: calc(50% - 40px);
+    bottom: 0;
+    background: linear-gradient(90deg, #22c55e, #f5c518, #f97316);
+    border-radius: 3px;
+}
+
+.page-header a {
+    position: relative;
+    padding: 0 12px;
+    font-size: 20px;
+    color: rgba(255,255,255,0.75);
+    transition: color 0.3s ease;
+}
+
+.page-header a:hover {
+    color: #f5c518;
+}
+
+.page-header a::after {
+    position: absolute;
+    content: "/";
+    width: 8px;
+    height: 8px;
+    top: -2px;
+    right: -7px;
+    text-align: center;
+    color: rgba(255,255,255,0.4);
+}
+
+.page-header a:last-child::after {
+    display: none;
+}
+
+@keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 991.98px) {
+    .page-header { padding: 60px 0; }
+    .page-header::before { background-attachment: unset; }
+    .page-header h2 { font-size: 44px; }
+    .page-header a { font-size: 18px; }
+}
+
+@media (max-width: 767.98px) {
+    .page-header { padding: 50px 0; }
+    .page-header h2 { font-size: 34px; }
+    .page-header a { font-size: 16px; }
+}

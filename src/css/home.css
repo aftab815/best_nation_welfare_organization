@@ -1,0 +1,75 @@
+/* ══════════════════════════════════════════════════
+   HOME VIDEO SECTION — Green · Gold · Orange Theme
+   ══════════════════════════════════════════════════ */
+
+.video-container {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+}
+
+.video-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(7,26,14,0.5) 0%,
+    rgba(34,197,94,0.08) 50%,
+    rgba(249,115,22,0.1) 100%
+  );
+  z-index: 1;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.typewriter {
+  position: absolute;
+  top: 90%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  width: fit-content;
+  z-index: 2;
+}
+
+.typewriter h2 {
+  overflow: hidden;
+  border-right: 0.12em solid #f5c518;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.12em;
+  animation: typing 7.5s steps(40) infinite, blink-caret 0.75s infinite;
+  color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  text-shadow: 0 0 20px rgba(34,197,94,0.6);
+}
+
+@media (max-width: 767.98px) {
+  .typewriter {
+    left: 50%;
+  }
+  .typewriter h2 {
+    font-size: 16px;
+  }
+}
+
+/* ── Animations ─────────────────────────────────────────────────── */
+@keyframes typing {
+  0%   { width: 0; }
+  50%  { width: 100%; }
+  100% { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50%       { border-color: #f5c518; }
+}
